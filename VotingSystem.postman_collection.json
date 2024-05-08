@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "a886e642-ec71-4507-bb51-5a68fb552675",
+		"name": "VotingSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3016276"
+	},
+	"item": [
+		{
+			"name": "startCampain",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"options\" : [\"option A\", \"option B\", \"option C\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/startCampaign",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"startCampaign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cast",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"E\",\r\n    \"message\" : {\"option\": \"A\"},\r\n    \"campianId\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/cast",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cast"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setUploader",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"0x2C9D79e37168A247fDbA30377e6EaF50754022B8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/setUploader",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"setUploader"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCampaignResults",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/getCampaignResults",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getCampaignResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endCampaign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/endCampaign",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"endCampaign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserVoteByCampaign",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"q\",\r\n    \"campianId\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/getUserVoteByCampaign",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getUserVoteByCampaign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifyMerkleProof",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"voteHash\": \"828c2b96f1f8e572388e7e005b92ebff6b4977103ef4485730df32d040a3b35f\",\r\n    \"merkleProof\": [\r\n        {\r\n            \"hash\": \"4bde0dcf4b58ffd068ae4468119d6197577fc6777331370fa1592a6cd24b3f1c\",\r\n            \"position\": \"right\"\r\n        },\r\n        {\r\n            \"hash\": \"7a134c84c648ca1743643b2805cd4054eb8c851340cc3e1a32e53e84e5c15884\",\r\n            \"position\": \"right\"\r\n        }\r\n    ],\r\n    \"merkleRoot\": \"df54e3ef65af34045127619ec076c2529e2b9be12ed386fb87d304cfb4b4a0bb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/verifyMerkleProof",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"verifyMerkleProof"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
