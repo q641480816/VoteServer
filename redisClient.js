@@ -22,17 +22,21 @@ const hsetMassSet = promisify(redisClient.hmset).bind(redisClient);
 const flush = promisify(redisClient.flushdb).bind(redisClient);
 
 const lockTable = async (table, timeout = 10000) => {
-    try {
-        const lockValue = Date.now() + timeout + 1;
-        const locked = await redisClient.set(`${table}LOCK`, lockValue, 'NX', 'PX', timeout);
-        console.log(locked);
-        if (locked) {
-            return lockValue;
+    return new Promise(async (resolve, reject) => {
+        try {
+            const lockValue = Date.now() + timeout + 1;
+            const locked = await redisClient.set(`${table}LOCK`, lockValue, 'NX', 'PX', timeout);
+            if (locked) {
+                resolve(locked)
+            } else {
+                setTimeout(() => lockTable(table, timeout)
+                    .then(res => resolve(res))
+                    .catch(err => reject(err)), 100)
+            }
+        } catch (err) {
+            reject(err);
         }
-        return false;
-    } catch (err) {
-        throw err;
-    }
+    })
 }
 
 const releaseTable = async (table) => {
