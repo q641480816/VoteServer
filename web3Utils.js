@@ -10,7 +10,7 @@ const getProvider = () => {
     try {
         // const web3 = new Web3.Web3("https://sepolia.infura.io/v3/8ee5212994f64e268c630ec7e48dff56");
         if (!web3bust) {
-            web3bust = new Web3.Web3("HTTP://127.0.0.1:7545");
+            web3bust = new Web3.Web3("https://sepolia.infura.io/v3/8ee5212994f64e268c630ec7e48dff56");
         }
         return web3bust;
     } catch (err) {
